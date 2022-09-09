@@ -13,6 +13,7 @@ const InvList = (props) => {
           roast={coffee.roast}
           stock={coffee.stock}
           price={coffee.price}
+          sellCoffee={props.sellCoffee}
           id={coffee.id}
           key={coffee.id}
         />
@@ -23,7 +24,8 @@ const InvList = (props) => {
 
 InvList.propTypes = {
   invList: PropTypes.array,
-  whenCoffeeClicked: PropTypes.func,
+  onCoffeeSelection: PropTypes.func,
+  sellCoffee: PropTypes.func,
 };
 
 export default InvList;

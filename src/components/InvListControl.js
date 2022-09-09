@@ -13,6 +13,23 @@ class InvListControl extends React.Component {
     };
   }
 
+  sellCoffee = (id) => {
+    const temp = this.state.mainInvList.map((coffee) => {
+      if (coffee.id === id) {
+        if (coffee.stock > 0) {
+          return {
+            ...coffee,
+            stock: coffee.stock - 1,
+          };
+        } else {
+          return coffee;
+        }
+      }
+      return coffee;
+    });
+    this.setState({ mainInvList: temp });
+  };
+
   handleClick = () => {
     if (this.state.selectedCoffee !== null) {
       this.setState({
@@ -58,6 +75,7 @@ class InvListControl extends React.Component {
         <InvList
           invList={this.state.mainInvList}
           onCoffeeSelection={this.handleChangingSelectedCoffee}
+          sellCoffee={this.sellCoffee}
         />
       );
       buttonText = "Purchase";
