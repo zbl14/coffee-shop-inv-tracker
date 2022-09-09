@@ -22,7 +22,7 @@ class InvListControl extends React.Component {
             stock: coffee.stock - 1,
           };
         } else {
-          return { ...coffee, stock: "out of stock" };
+          return { ...coffee, stock: "Out of stock" };
         }
       }
     });
