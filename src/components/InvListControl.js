@@ -35,7 +35,7 @@ class InvListControl extends React.Component {
   };
 
   handleChangingSelectedCoffee = (id) => {
-    const selectedCoffee = this.state.mainStockList.filter(
+    const selectedCoffee = this.state.mainInvList.filter(
       (coffee) => coffee.id === id
     )[0];
     this.setState({ selectedCoffee: selectedCoffee });
@@ -65,7 +65,7 @@ class InvListControl extends React.Component {
 
     return (
       <React.Fragment>
-        {curVisibleState};
+        {curVisibleState}
         <button onClick={this.handleClick}>{buttonText}</button>
       </React.Fragment>
     );

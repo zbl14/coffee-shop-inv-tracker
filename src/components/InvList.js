@@ -7,6 +7,7 @@ const InvList = (props) => {
     <React.Fragment>
       {props.invList.map((coffee) => (
         <Coffee
+          whenCoffeeClicked={props.onCoffeeSelection}
           name={coffee.name}
           origin={coffee.origin}
           roast={coffee.roast}
@@ -22,6 +23,7 @@ const InvList = (props) => {
 
 InvList.propTypes = {
   invList: PropTypes.array,
+  whenCoffeeClicked: PropTypes.func,
 };
 
 export default InvList;
