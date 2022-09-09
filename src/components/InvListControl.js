@@ -26,6 +26,21 @@ class InvListControl extends React.Component {
     }
   };
 
+  handleAddingNewCoffeeToList = (newCoffee) => {
+    const newMainInvList = this.state.mainInvList.concat(newCoffee);
+    this.setState({
+      mainInvList: newMainInvList,
+      formVisible: false,
+    });
+  };
+
+  handleChangingSelectedCoffee = (id) => {
+    const selectedCoffee = this.state.mainStockList.filter(
+      (coffee) => coffee.id === id
+    )[0];
+    this.setState({ selectedCoffee: selectedCoffee });
+  };
+
   render() {
     let curVisibleState = null;
     let buttonText = null;
@@ -33,7 +48,9 @@ class InvListControl extends React.Component {
       curVisibleState = <CoffeeDetail coffee={this.state.selectedCoffee} />;
       buttonText = "Return to Inventory";
     } else if (this.state.formVisible) {
-      curVisibleState = <NewPurchaseForm />;
+      curVisibleState = (
+        <NewPurchaseForm onNewFormCreation={this.handleAddingNewCoffeeToList} />
+      );
       buttonText = "Return to Inventory";
     } else {
       <InvList invList={this.state.mainInvList} />;
