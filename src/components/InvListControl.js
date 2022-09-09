@@ -57,12 +57,27 @@ class InvListControl extends React.Component {
     this.setState({ selectedCoffee: selectedCoffee });
   };
 
+  handleDeletingCoffee = (id) => {
+    const newMainInvList = this.state.mainInvList.filter(
+      (coffee) => coffee.id !== id
+    );
+    this.setState({
+      mainInvList: newMainInvList,
+      selectedCoffee: null,
+    });
+  };
+
   render() {
     let curVisibleState = null;
     let buttonText = null;
 
     if (this.state.selectedCoffee !== null) {
-      curVisibleState = <CoffeeDetail coffee={this.state.selectedCoffee} />;
+      curVisibleState = (
+        <CoffeeDetail
+          coffee={this.state.selectedCoffee}
+          onClickingDelete={this.handleDeletingCoffee}
+        />
+      );
       buttonText = "Return to Inventory";
     } else if (this.state.formVisible) {
       curVisibleState = (
