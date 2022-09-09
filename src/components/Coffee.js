@@ -38,7 +38,7 @@ Coffee.propTypes = {
   roast: PropTypes.string.isRequired,
   stock: PropTypes.oneOfType([
     PropTypes.number.isRequired,
-    PropTypes.string.isRequired,
+    PropTypes.oneOf(["Out of stock"]),
   ]),
   price: PropTypes.number.isRequired,
   id: PropTypes.string,
