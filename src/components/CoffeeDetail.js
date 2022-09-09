@@ -15,7 +15,7 @@ const CoffeeDetail = (props) => {
 };
 
 CoffeeDetail.propTypes = {
-  merch: PropTypes.object,
+  coffee: PropTypes.object,
 };
 
 export default CoffeeDetail;

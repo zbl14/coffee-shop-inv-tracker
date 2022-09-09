@@ -34,10 +34,13 @@ class Coffee extends React.Component {
 
 Coffee.propTypes = {
   name: PropTypes.string.isRequired,
-  Origin: PropTypes.string,
-  Roast: PropTypes.string.isRequired,
-  Stock: PropTypes.number.isRequired,
-  Price: PropTypes.number.isRequired,
+  origin: PropTypes.string,
+  roast: PropTypes.string.isRequired,
+  stock: PropTypes.oneOfType([
+    PropTypes.number.isRequired,
+    PropTypes.string.isRequired,
+  ]),
+  price: PropTypes.number.isRequired,
   id: PropTypes.string,
   whenCoffeeClicked: PropTypes.func,
   sellCoffee: PropTypes.func,

@@ -10,8 +10,8 @@ const NewPurchaseForm = (props) => {
       name: event.target.name.value,
       origin: event.target.origin.value,
       roast: event.target.roast.value,
-      stock: event.target.stock.value,
-      price: event.target.price.value,
+      stock: parseInt(event.target.stock.value),
+      price: parseInt(event.target.price.value),
       id: v4(),
     });
   };
