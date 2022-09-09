@@ -44,6 +44,7 @@ class InvListControl extends React.Component {
   render() {
     let curVisibleState = null;
     let buttonText = null;
+
     if (this.state.selectedCoffee !== null) {
       curVisibleState = <CoffeeDetail coffee={this.state.selectedCoffee} />;
       buttonText = "Return to Inventory";
@@ -53,7 +54,12 @@ class InvListControl extends React.Component {
       );
       buttonText = "Return to Inventory";
     } else {
-      <InvList invList={this.state.mainInvList} />;
+      curVisibleState = (
+        <InvList
+          invList={this.state.mainInvList}
+          onCoffeeSelection={this.handleChangingSelectedCoffee}
+        />
+      );
       buttonText = "Purchase";
     }
 
