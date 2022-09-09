@@ -10,6 +10,7 @@ const CoffeeDetail = (props) => {
       <h3>Roast: {coffee.roast}</h3>
       <h3>Stock: {coffee.stock}</h3>
       <h3>Price: {coffee.price}</h3>
+      <button onClick={props.onClickingEdit}>Edit</button>
       <button onClick={() => onClickingDelete(coffee.id)}>
         Remove Coffee burlap sack
       </button>

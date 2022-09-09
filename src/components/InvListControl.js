@@ -2,6 +2,7 @@ import React from "react";
 import InvList from "./InvList";
 import CoffeeDetail from "./CoffeeDetail";
 import NewPurchaseForm from "./NewPurchaseForm";
+import EditCoffeeForm from "./EditCoffeeForm";
 
 class InvListControl extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class InvListControl extends React.Component {
       formVisible: false,
       mainInvList: [],
       selectedCoffee: null,
+      editing: false,
     };
   }
 
@@ -34,6 +36,7 @@ class InvListControl extends React.Component {
       this.setState({
         formVisible: false,
         selectedCoffee: null,
+        editing: false,
       });
     } else {
       this.setState((prevState) => ({
@@ -67,15 +70,39 @@ class InvListControl extends React.Component {
     });
   };
 
+  handleEditClick = () => {
+    this.setState({ editing: true });
+  };
+
+  handleEditingCoffeeInList = (coffeeToEdit) => {
+    const editedMainInvList = this.state.mainInvList
+      .filter((coffee) => coffee.id !== this.state.selectedCoffee.id)
+      .concat(coffeeToEdit);
+    this.setState({
+      mainInvList: editedMainInvList,
+      editing: false,
+      selectedCoffee: null,
+    });
+  };
+
   render() {
     let curVisibleState = null;
     let buttonText = null;
 
-    if (this.state.selectedCoffee !== null) {
+    if (this.state.editing) {
+      curVisibleState = (
+        <EditCoffeeForm
+          coffee={this.state.selectedCoffee}
+          onEditCoffee={this.handleEditingCoffeeInList}
+        />
+      );
+      buttonText = "Return to Inventory";
+    } else if (this.state.selectedCoffee !== null) {
       curVisibleState = (
         <CoffeeDetail
           coffee={this.state.selectedCoffee}
           onClickingDelete={this.handleDeletingCoffee}
+          onClickingEdit={this.handleEditClick}
         />
       );
       buttonText = "Return to Inventory";
