@@ -15,21 +15,22 @@ class InvListControl extends React.Component {
     };
   }
 
-  sellCoffee = (id) => {
-    const temp = this.state.mainInvList.map((coffee) => {
-      if (coffee.id === id) {
-        if (coffee.stock > 0) {
-          return {
-            ...coffee,
-            stock: coffee.stock - 1,
-          };
-        } else {
-          return { ...coffee, stock: "Out of stock" };
-        }
-      }
-    });
-    this.setState({ mainInvList: temp });
-  };
+  // handelClickingSellCoffee = (id) => {
+  //   const temp = this.state.mainInvList.map((coffee) => {
+  //     if (coffee.id === id) {
+  //       if (coffee.stock > 0) {
+  //         return {
+  //           ...coffee,
+  //           stock: coffee.stock - 1,
+  //         };
+  //       } else {
+  //         return { ...coffee, stock: "Out of stock" };
+  //       }
+  //     }
+  //     return coffee;
+  //   });
+  //   this.setState({ mainInvList: temp });
+  // };
 
   handleClick = () => {
     if (this.state.selectedCoffee !== null) {
@@ -58,6 +59,18 @@ class InvListControl extends React.Component {
       (coffee) => coffee.id === id
     )[0];
     this.setState({ selectedCoffee: selectedCoffee });
+  };
+
+  handleClickingSellCoffee = () => {
+    const selectedCoffee = this.state.selectedCoffee;
+    const sellCoffee = { ...selectedCoffee, stock: selectedCoffee.stock - 1 };
+    const newSelectedCoffee = this.state.mainInvList
+      .filter((coffee) => coffee.id !== this.state.selectedCoffee.id)
+      .concat(sellCoffee);
+    this.setState({
+      mainInvList: newSelectedCoffee,
+      selectedCoffee: sellCoffee,
+    });
   };
 
   handleDeletingCoffee = (id) => {
@@ -101,6 +114,7 @@ class InvListControl extends React.Component {
       curVisibleState = (
         <CoffeeDetail
           coffee={this.state.selectedCoffee}
+          OnClickingSellCoffee={this.handleClickingSellCoffee}
           onClickingDelete={this.handleDeletingCoffee}
           onClickingEdit={this.handleEditClick}
         />
@@ -116,7 +130,6 @@ class InvListControl extends React.Component {
         <InvList
           invList={this.state.mainInvList}
           onCoffeeSelection={this.handleChangingSelectedCoffee}
-          sellCoffee={this.sellCoffee}
         />
       );
       buttonText = "Purchase";
