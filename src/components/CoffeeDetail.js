@@ -2,6 +2,20 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const CoffeeDetail = (props) => {
+  const buttonStyle = {
+    backgroundColor: "royalblue",
+    width: "25%",
+    color: "white",
+    padding: "14px 20px",
+    border: "none",
+    borderRadius: "4px",
+    cursor: "pointer",
+    display: "block",
+    margin: "8px auto 8px auto",
+    marginLeft: "auto",
+    marginRight: "auto",
+  };
+
   const { coffee, onClickingDelete } = props;
   return (
     <React.Fragment>
@@ -11,13 +25,15 @@ const CoffeeDetail = (props) => {
       <h3>Stock: {coffee.stock}</h3>
       <h3>Price: $ {coffee.price}</h3>
       {coffee.stock > 0 ? (
-        <button onClick={props.OnClickingSellCoffee}>
+        <button onClick={props.OnClickingSellCoffee} style={buttonStyle}>
           Sell 1-pound serving
         </button>
       ) : null}
-      <button onClick={props.onClickingEdit}>Edit</button>
-      <button onClick={() => onClickingDelete(coffee.id)}>
-        Remove Coffee burlap sack
+      <button onClick={props.onClickingEdit} style={buttonStyle}>
+        Edit
+      </button>
+      <button onClick={() => onClickingDelete(coffee.id)} style={buttonStyle}>
+        Remove Coffee Sack
       </button>
     </React.Fragment>
   );
