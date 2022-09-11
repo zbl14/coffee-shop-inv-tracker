@@ -4,6 +4,20 @@ import CoffeeDetail from "./CoffeeDetail";
 import NewPurchaseForm from "./NewPurchaseForm";
 import EditCoffeeForm from "./EditCoffeeForm";
 
+const buttonStyle = {
+  backgroundColor: "royalblue",
+  width: "20%",
+  color: "white",
+  padding: "14px 20px",
+  border: "none",
+  borderRadius: "4px",
+  cursor: "pointer",
+  justifyContent: "center",
+  display: "block",
+  marginLeft: "auto",
+  marginRight: "auto",
+};
+
 class InvListControl extends React.Component {
   constructor(props) {
     super(props);
@@ -148,7 +162,9 @@ class InvListControl extends React.Component {
     return (
       <React.Fragment>
         {curVisibleState}
-        <button onClick={this.handleClick}>{buttonText}</button>
+        <button onClick={this.handleClick} style={buttonStyle}>
+          {buttonText}
+        </button>
       </React.Fragment>
     );
   }
