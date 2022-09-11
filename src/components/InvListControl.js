@@ -12,7 +12,13 @@ const buttonStyle = {
   border: "none",
   borderRadius: "4px",
   cursor: "pointer",
-  justifyContent: "center",
+  display: "block",
+  marginLeft: "auto",
+  marginRight: "auto",
+};
+
+const curVisibleStateStyle = {
+  width: "80%",
   display: "block",
   marginLeft: "auto",
   marginRight: "auto",
@@ -161,7 +167,7 @@ class InvListControl extends React.Component {
 
     return (
       <React.Fragment>
-        {curVisibleState}
+        <div style={curVisibleStateStyle}> {curVisibleState}</div>
         <button onClick={this.handleClick} style={buttonStyle}>
           {buttonText}
         </button>
