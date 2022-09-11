@@ -7,7 +7,11 @@ const ReusableForm = (props) => {
       <form onSubmit={props.formSubmissionHandler}>
         <input type="text" name="name" placeholder="Coffee Name" />
         <input type="text" name="origin" placeholder="Origin" />
-        <input type="text" name="roast" placeholder="light/medium/dark" />
+        <select name="roast">
+          <option value="Light">Light</option>
+          <option value="Medium">Medium</option>
+          <option value="Dark">Dark</option>
+        </select>
         <input type="number" name="stock" placeholder="Purchase Amount" />
         <input type="number" name="price" placeholder="Price" />
         <button type="submit">{props.buttonText}</button>
