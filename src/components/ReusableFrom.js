@@ -10,7 +10,7 @@ const ReusableForm = (props) => {
   };
 
   const inputStyle = {
-    width: "20%",
+    width: "25%",
     padding: "12px 20px",
     margin: "8px 0",
     display: "inline-block",
@@ -31,7 +31,7 @@ const ReusableForm = (props) => {
 
   const submitStyle = {
     backgroundColor: isHover ? "#45a049" : "#4CAF50",
-    width: "20%",
+    width: "25%",
     color: "white",
     padding: "14px 20px",
     margin: "8px 0",
