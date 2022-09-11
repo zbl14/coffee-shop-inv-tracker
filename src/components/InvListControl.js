@@ -67,6 +67,22 @@ class InvListControl extends React.Component {
     }
   };
 
+  // handleClickingSellCoffee = () => {
+  //   const selectedCoffee = this.state.selectedCoffee;
+  //   if (selectedCoffee.stock > 1) {
+  //     const sellCoffee = { ...selectedCoffee, stock: selectedCoffee.stock - 1 };
+  //   } else {
+  //     const sellCoffee = { ...selectedCoffee, stock: "Out of stock" };
+  //   }
+  //   const newSelectedCoffee = this.state.mainInvList
+  //     .filter((coffee) => coffee.id !== this.state.selectedCoffee.id)
+  //     .concat(sellCoffee);
+  //   this.setState({
+  //     mainInvList: newSelectedCoffee,
+  //     selectedCoffee: sellCoffee,
+  //   });
+  // };
+
   handleDeletingCoffee = (id) => {
     const newMainInvList = this.state.mainInvList.filter(
       (coffee) => coffee.id !== id
