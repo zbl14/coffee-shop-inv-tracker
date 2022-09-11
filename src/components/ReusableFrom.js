@@ -48,6 +48,7 @@ const ReusableForm = (props) => {
           name="name"
           placeholder="Coffee Name"
           style={inputStyle}
+          required
         />
         <input
           type="text"
@@ -55,7 +56,10 @@ const ReusableForm = (props) => {
           placeholder="Origin"
           style={inputStyle}
         />
-        <select name="roast" style={inputStyle}>
+        <select name="roast" style={inputStyle} defaultValue="">
+          <option value="" disabled>
+            Roast Type
+          </option>
           <option value="Light">Light</option>
           <option value="Medium">Medium</option>
           <option value="Dark">Dark</option>
@@ -66,6 +70,7 @@ const ReusableForm = (props) => {
           min="0"
           placeholder="Purchase Amount"
           style={inputStyle}
+          required
         />
         <input
           type="number"
@@ -74,6 +79,7 @@ const ReusableForm = (props) => {
           step="0.01"
           placeholder="Price"
           style={inputStyle}
+          required
         />
         <button
           type="submit"
