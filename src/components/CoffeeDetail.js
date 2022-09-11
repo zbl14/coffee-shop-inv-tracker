@@ -28,7 +28,11 @@ const CoffeeDetail = (props) => {
         <button onClick={props.OnClickingSellCoffee} style={buttonStyle}>
           Sell 1-pound serving
         </button>
-      ) : null}
+      ) : (
+        <button onClick={props.OnClickingRestock} style={buttonStyle}>
+          Restock
+        </button>
+      )}
       <button onClick={props.onClickingEdit} style={buttonStyle}>
         Edit
       </button>

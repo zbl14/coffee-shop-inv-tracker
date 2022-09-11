@@ -103,6 +103,18 @@ class InvListControl extends React.Component {
   //   });
   // };
 
+  handleClickingRestock = () => {
+    const selectedCoffee = this.state.selectedCoffee;
+    const restock = { ...selectedCoffee, stock: 130 };
+    const newSelectedCoffee = this.state.mainInvList
+      .filter((coffee) => coffee.id !== this.state.selectedCoffee.id)
+      .concat(restock);
+    this.setState({
+      mainInvList: newSelectedCoffee,
+      selectedCoffee: restock,
+    });
+  };
+
   handleDeletingCoffee = (id) => {
     const newMainInvList = this.state.mainInvList.filter(
       (coffee) => coffee.id !== id
@@ -145,6 +157,7 @@ class InvListControl extends React.Component {
         <CoffeeDetail
           coffee={this.state.selectedCoffee}
           OnClickingSellCoffee={this.handleClickingSellCoffee}
+          OnClickingRestock={this.handleClickingRestock}
           onClickingDelete={this.handleDeletingCoffee}
           onClickingEdit={this.handleEditClick}
         />
