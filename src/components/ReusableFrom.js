@@ -12,8 +12,19 @@ const ReusableForm = (props) => {
           <option value="Medium">Medium</option>
           <option value="Dark">Dark</option>
         </select>
-        <input type="number" name="stock" placeholder="Purchase Amount" />
-        <input type="number" name="price" placeholder="Price" />
+        <input
+          type="number"
+          name="stock"
+          min="0"
+          placeholder="Purchase Amount"
+        />
+        <input
+          type="number"
+          name="price"
+          min="0"
+          step="0.01"
+          placeholder="Price"
+        />
         <button type="submit">{props.buttonText}</button>
       </form>
     </React.Fragment>

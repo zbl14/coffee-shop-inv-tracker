@@ -11,7 +11,7 @@ const EditCoffeeForm = (props) => {
       origin: event.target.origin.value,
       roast: event.target.roast.value,
       stock: parseInt(event.target.stock.value),
-      price: parseInt(event.target.price.value),
+      price: parseFloat(event.target.price.value),
       id: coffee.id,
     });
   };

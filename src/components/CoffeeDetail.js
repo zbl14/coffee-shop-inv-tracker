@@ -9,7 +9,7 @@ const CoffeeDetail = (props) => {
       <h3>Origin: {coffee.origin}</h3>
       <h3>Roast: {coffee.roast}</h3>
       <h3>Stock: {coffee.stock}</h3>
-      <h3>Price: {coffee.price}</h3>
+      <h3>Price: $ {coffee.price}</h3>
       {coffee.stock > 0 ? (
         <button onClick={props.OnClickingSellCoffee}>
           Sell 1-pound serving
