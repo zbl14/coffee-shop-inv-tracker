@@ -46,7 +46,9 @@ const CoffeeDetail = (props) => {
 CoffeeDetail.propTypes = {
   coffee: PropTypes.object,
   onClickingDelete: PropTypes.func,
+  onClickingEdit: PropTypes.func,
   OnClickingSellCoffee: PropTypes.func,
+  OnClickingRestock: PropTypes.func,
 };
 
 export default CoffeeDetail;
