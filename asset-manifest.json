@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/coffee-shop-inv-tracker/static/css/main.e6c13ad2.css",
+    "main.js": "/coffee-shop-inv-tracker/static/js/main.c880e84c.js",
+    "index.html": "/coffee-shop-inv-tracker/index.html",
+    "main.e6c13ad2.css.map": "/coffee-shop-inv-tracker/static/css/main.e6c13ad2.css.map",
+    "main.c880e84c.js.map": "/coffee-shop-inv-tracker/static/js/main.c880e84c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.c880e84c.js"
+  ]
+}
